@@ -1,0 +1,513 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Mukta:wght@300&family=Readex+Pro:wght@300&family=Ubuntu:ital,wght@0,300;1,300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --theme-color: #110f3d;
+    --text-color: #f7f7f7;
+    --gridTransition: all 2s cubic-bezier(0.165, 0.84, 0.44, 1);
+    --lineTransition: width 1s cubic-bezier(0, 0.01, 0.2, 1);
+    --boxTransition: transform 1s ease-in;
+}
+
+@keyframes bgAnime {
+    0% {
+        background-color: black;
+    }
+
+    25% {
+        background-color: rgb(226, 45, 45);
+    }
+
+    50% {
+        background-color: rgb(77, 130, 200);
+    }
+
+    100% {
+        background-color: rgb(245, 238, 238);
+        background-color: rgb(255, 250, 250);
+        background-color: var(--text-color);
+    }
+}
+
+@keyframes loadNav {
+    from {
+        height: 365px;
+    }
+}
+
+@keyframes BRadius {
+    0% {
+        border-radius: 10px;
+    }
+
+    50% {
+        transform: rotate(0deg);
+        border-radius: 100px;
+    }
+
+    100% {
+        border-radius: 0px;
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes Ttype {
+
+    0%,
+    50%,
+    100% {
+        width: 100%;
+        border-right: 2px solid rgb(11, 253, 43);
+    }
+
+    65% {
+        border-right: 2px solid transparent;
+        width: 0%;
+    }
+}
+
+@keyframes circle {
+    0% {
+        transform: rotate(0deg);
+        filter: hue-rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+        filter: hue-rotate(360deg);
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .gameContainer {
+        flex-wrap: wrap;
+        border: 1px solid red;
+    }
+
+    .gameInfo {
+        margin-top: 20px;
+    }
+
+    .gameInfo h1 {
+        font-size: 10px;
+    }
+
+    .container {
+        grid-template-rows: repeat(3, 30vw);
+        grid-template-columns: repeat(3, 30vw);
+    }
+}
+
+body {
+    /* animation: bgAnime 4s cubic-bezier(0.165, 0.84, 0.44, 1) 0s 1 forwards; */
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+nav {
+    background-color: var(--theme-color);
+    color: var(--text-color);
+    font-size: 27px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    /*justify-content: center ;*/
+    /* margin: 0 3px; */
+    padding: 0 12px;
+    font-family: 'Roboto';
+    /* border-radius: 8px; */
+    /* animation: loadNav 1s ease 1; */
+    overflow: hidden;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* nav ul #title{
+    align-self: baseline;
+} */
+
+.Container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.Gridcontainer {
+    position: relative;
+    display: grid;
+    grid-template-rows: repeat(3, 10vw);
+    grid-template-columns: repeat(3, 10vw);
+    font-family: 'ubuntu';
+    transition: var(--gridTransition);
+}
+
+.line {
+    background-color: var(--theme-color);
+    position: absolute;
+    height: 3px;
+    width: 0;
+    transition: var(--lineTransition);
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    /* border-radius: 10px; */
+    font-size: 8vw;
+    cursor: pointer;
+    /* animation: BRadius 1s cubic-bezier(0, 0.01, 0.2, 1)  0.5s 1 ; */
+    /* transition: var(--boxTransition); */
+}
+
+.box:hover {
+    background-color: rgb(242, 234, 250);
+    box-shadow: 4px 5px 10px rgb(122, 142, 228);
+    /* transform: rotate(360deg); */
+}
+
+.gameInfo {
+    /* padding: 0 34px; */
+    font-family: 'Baloo Bhaina 2', 'cursive';
+}
+
+.info {
+    /* display: grid;
+    /* align-items: center;
+    justify-content: center; */
+    position: relative;
+    top: 5px;
+    background: var(--theme-color);
+    border-radius: 5px;
+    color: var(--text-color);
+    margin: 40px 1px;
+    padding: 10px 25px;
+    font-size: 30px;
+    font-family: 'Lucida Sans', 'Geneva', 'Verdana', 'sans-serif';
+    font-weight: 200;
+    transition: 0.4s cubic-bezier(0.4, 0, 1, 0.05);
+}
+
+.gameInfo h1 {
+    font-size: 2.5rem;
+}
+
+.imgbox img {
+    width: 0;
+    transition: width 1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.br-0 {
+    border-right: 0;
+}
+
+.bl-0 {
+    border-left: 0;
+}
+
+.bt-0 {
+    border-top: 0;
+}
+
+.bb-0 {
+    border-bottom: 0;
+}
+
+#reset {
+    background: transparent;
+    color: var(--theme-color);
+    border: 1px solid var(--theme-color);
+    border-radius: 4px;
+    margin: auto 23px;
+    padding: 2px 17px;
+    font-family: 'Baloo Bhaina 2';
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.1s;
+    /* visibility: hidden; */
+}
+
+#reset:hover {
+    background-color: var(--theme-color);
+    color: var(--text-color);
+    box-shadow: 1px -1px 10px #6d06e469;
+}
+
+#logoimg {
+    margin: 0px 10px;
+    width: 50px;
+}
+
+nav ul #title {
+    position: relative;
+    color: #333077a9;
+    margin: 10px 0px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 30px;
+    letter-spacing: 1px;
+    /* align-self: baseline; */
+}
+
+#title::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    color: var(--text-color);
+    border-right: 2px ridge rgb(11, 253, 43);
+    animation: Ttype 5s ease-in-out 5s 21;
+    overflow: hidden;
+}
+
+#animCircle {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3d2a63;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    margin: 0px 10px 0px 2px;
+    overflow: hidden;
+}
+
+#animCircle::before {
+    content: '';
+    position: absolute;
+    display: inline-block;
+    margin: auto;
+    /* left: 30px; */
+    height: 62px;
+    width: 30px;
+    background-color: rgb(0, 255, 34);
+    /* box-shadow: 5px 1px 5px rgb(89, 0, 255) ; */
+    animation: circle 1s cubic-bezier(0.38, 0.6, 0.57, 1) infinite;
+    /*1s*/
+    transition: 1s linear;
+}
+
+#animCircle:hover::before {
+    width: 30px;
+}
+
+#animCircle::after {
+    /* background-image: url('./Jojo\ Spammer.png'); */
+    content: '';
+    position: absolute;
+    inset: 4px;
+    background-color: var(--theme-color);
+    border-radius: 50px;
+}
+
+#NameLogo {
+    position: absolute;
+    font-size: 30px;
+    color: aliceblue;
+    z-index: 10;
+    letter-spacing: 1px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.redIc {
+    position: absolute;
+    /* bottom: 15px; */
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: red;
+    color: white;
+    width: 50px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    font-size: 20px;
+    visibility: hidden;
+    transition: 0.3s ease;
+    /* box-shadow: 1px 0px 2px black; */
+    box-shadow: 1px 1px 10px 100vmax rgb(0, 0, 0, 0.5);
+    z-index: 100;
+}
+
+.finder {
+    /* position: absolute; */
+    /* background-color: red; */
+    /* width: 13px; */
+    /* height: 60px; */
+    /* bottom: 7px; */
+    /* right: 1px; */
+    /* border-radius: 1px; */
+    /* transition: 0.3s cubic-bezier(0.05, 0.63, 1, 1.19); */
+    /* display: none; */
+    /* border-radius: 10px; */
+    /* overflow: hidden; */
+}
+
+.active .redIc:before {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    background-color: rgb(12, 218, 12);
+    /* border: 2px dashed #110f3d; */
+    width: 45px;
+    height: 45px;
+    z-index: -1;
+    border-radius: 50%;
+    transition: var(--tras, 0.3s ease);
+    /* background-color: #44d82a; */
+    transform: rotate(360deg), scale(200);
+    transition: 1s linear;
+    opacity: 1;
+
+}
+
+.redIc:before {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    background-color: rgb(12, 218, 12);
+    /* border: 2px dashed #110f3d; */
+    width: 45px;
+    height: 45px;
+    z-index: -1;
+    border-radius: 50%;
+    transition: var(--tras, 0.3s ease);
+    transform: scale(var(--MyScaler, 0));
+    opacity: var(--opacity, 1);
+}
+
+.redIc:hover::before {
+    /* animation: roll 1s ease 0s infinite;
+    transform: scale(0);
+    opacity: 0.1; */
+}
+
+@keyframes roll {
+    to {
+        transform: scale(8);
+        opacity: 0.001;
+    }
+}
+
+.Cont1 {
+    left: 50%;
+    top: 82%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    background-color: #242424;
+    width: 300px;
+    height: 199px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Cont1 #bts {
+    position: absolute;
+    background-color: #a197ff;
+    color: white;
+    width: 75px;
+    height: 40px;
+    /* bottom: 0px ; */
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+
+
+
+
+@media only screen and (max-width: 500px) {
+    nav {
+        justify-content: center;
+    }
+
+    .Container {
+        max-width: 380px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* border: 1px solid darkblue; */
+        /* margin-top: 80px; */
+        flex-direction: column-reverse;
+
+    }
+
+    .box {
+        font-size: 15vw;
+    }
+
+    .gameInfo h1 {
+        position: relative;
+        top: -45px;
+        font-size: 2em;
+        white-space: nowrap;
+        margin: 4px;
+    }
+
+    .Gridcontainer {
+        position: relative;
+        display: grid;
+        grid-template-rows: repeat(3, 27vw);
+        grid-template-columns: repeat(3, 27vw);
+        font-family: 'ubuntu';
+        transition: var(--gridTransition);
+    }
+
+
+    .buttInfo {
+        position: absolute;
+        display: flex;
+        /* border: 1px solid black; */
+        width: 80%;
+        left: 50%;
+        top: 90%;
+        transform: translate(-50%, -50%);
+        justify-content: space-between;
+        /* border-top: 2px solid #453dde; */
+        /* padding-top: 30px; */
+
+    }
+
+    .buttInfo .info {
+        top: 0;
+        margin: 0;
+        padding: 10px 25px;
+        font-size: 19px;
+    }
+
+    .buttInfo #reset {
+        margin: 0;
+        padding: 1.5px 35px;
+        font-size: 19px;
+    }
+
+
+    .imgbox img {
+        position: absolute;
+        left: 22%;
+        top: 40%;
+        transform: translateX(-50%, -50%);
+        /* box-shadow: 1px 1px 10px 100vmax rgb(0, 0, 0, 0.4); */
+
+    }
+}
